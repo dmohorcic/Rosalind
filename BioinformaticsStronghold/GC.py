@@ -1,7 +1,11 @@
+import os
+from pathlib import Path
+FILENAME = os.path.join(os.path.dirname(__file__), f"rosalind_{Path(__file__).stem.lower()}.txt")
+
 from Bio import SeqIO
 
 if __name__ == "__main__":
-	with open("BioinformaticsStronghold/StringAlgorithms/rosalind_gc.txt", "r") as f:
+	with open(FILENAME, "r") as f:
 		data = [rec for rec in SeqIO.parse(f, "fasta")]
 
 	d = {d.name: (d.seq.count("C")+d.seq.count("G"))/len(d.seq) for d in data}

@@ -4,8 +4,6 @@ FILENAME = os.path.join(os.path.dirname(__file__), f"rosalind_{Path(__file__).st
 
 if __name__ == "__main__":
 	with open(FILENAME, "r") as f:
-		i = False
-		for l in f:
-			if i:
-				print(l.split("\n")[0])
-			i = not i
+		data = f.readline().split("\n")[0]
+
+	print(data.count("A"), data.count("C"), data.count("G"), data.count("T"))
